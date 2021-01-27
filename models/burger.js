@@ -1,28 +1,24 @@
-app.get("/attitude-chart/:att", function(req, res) {
+const orm = require("../config/orm.js");
 
-    connection.query("SELECT * FROM schools WHERE ?",
-    {
-        attitude: req.params.att
-    },
-    function(err, result) {
-        if (err) throw err;
-        var html = "<h1>Seinfeld Cast</h1>";
-    
-        // Here we begin an unordered list.
-        html += "<ul>";
-    
-        // We then use the retrieved records from the database to populate our HTML file.
-        for (var i = 0; i < result.length; i++) {
-          html += "<li><p> ID: " + result[i].id + "</p>";
-          html += "<p>Name: " + result[i].name + " </p></li>";
-          html += "<p>Coolness Points: " + result[i].coolness + " </p></li>";
-          html += "<p>Attitude: " + result[i].attitude + " </p></li>";
-        }
-    
-        // We close our unordered list.
-        html += "</ul>";
-    
-        // Finally we send the user the HTML file we dynamically created.
-        res.send(html);
-    });
-});
+const burgers = {
+// Display all burgers in bucket list.
+select: (callBack) => {
+    orm.select("burgers", (res) => callBack(res));
+},
+// Add new burger to bucket list.
+insert: (newBurger, callBack) => {
+    orm.insert("burgers", "burger_name", "devoured", newBurger, (res) => callBack(res));
+},
+// Move burger from bucket list to devoured lit.
+update: (burgerDevoured, callBack) => {
+    orm.update("burgers", "devoured", "id", burgerDevoured, (res) => callBack(res));
+},
+// Remove bruger from devoured list.
+delete: (burgerGone, callBack) => {
+    orm.delete("burgers", "id", burgerGone, (res) => callBack(res));
+},
+
+};
+
+
+module.exports = burgers;

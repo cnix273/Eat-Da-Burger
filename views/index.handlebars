@@ -1,38 +1,68 @@
-<h1>Cats!</h1>
+<div class="container">
 
-<h2>Cats that are not sleepy!</h2>
+  <h1>Eat-Da-Burger!: The Burger Diary</h1>
 
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+  <h2>A burger a day keeps the doctor away!</h2>
 
-<h2>Cats that are sleepy!</h2>
+  <br>
 
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+  <img src="/assets/img/burger.jpg">
 
-<h2>Add a Cat</h2>
-<form class="create-form">
+  <br><br>
 
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+  <div class="row" id="title">
+    <div class="col-6" id="toEat">
+      <h3>Burger Bucket List</h3>
+    </div>
+    <div class="col-6" id="eaten">
+      <h3>BurgAccomplishments</h3>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+  <div class="row">
+    <div class="col-6" id="toEatList">
+      <ul>
+        {{#each burgers}}
+          {{#unless devoured}}
+          <li>
+            <p>{{burger_name}}
+              <form action="/update/{{id}}" method="POST">
+                <button type="submit" class="button" data-id="{{id}}" class="devourBurger">It's burger o'clock!</button>
+              </form>
+            </p>
+          </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-6" id="eatenList">
+      <ul>
+        {{#each burgers}}
+          {{#if devoured}}
+          <li>
+            <p>{{{burger_name}}}</p>
+            <form action="/delete/{{id}}" method="POST">
+              <button type="submit" class="button" data-id="{{id}}" class="devourBurger">Yummm!</button>
+            </form>
+          </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <h3>Another Burger?</h3>
+      <form id="addBurger" class="create-update-form" action="/insert" method="POST">
+        <div class="form-group">
+          <input id="newBurger" type="text" name="burger_name" placeholder="Enter Name of Burger">
+          <button type="submit">Gimme Gimme Gimme</button>
+        </div>
+      </form>
+    </div>
   </div>
 
-  <button type="submit">Add Cat</button>
-</form>
+</div>
