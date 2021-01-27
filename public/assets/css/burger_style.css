@@ -3,17 +3,14 @@ h1, h2, div{
     font-family: "Papyrus", "Copperplate", fantasy;
     color: red;
 }
-
 img {
     height: 20%;
     width: 20%;
 }
-
 button {
     color: red;
     background-color: pink;
 }
-
 ul {
     list-style-type: none;
 }
