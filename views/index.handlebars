@@ -1,5 +1,5 @@
 <div class="container">
-
+  <br>
   <h1>Eat-Da-Burger!: The Burger Diary</h1>
 
   <h2>A burger a day keeps the doctor away!</h2>
@@ -12,10 +12,10 @@
 
   <div class="row" id="title">
     <div class="col-6" id="toEat">
-      <h3>Burger Bucket List</h3>
+      <h3>Bucket List</h3>
     </div>
     <div class="col-6" id="eaten">
-      <h3>BurgAccomplishments</h3>
+      <h3>Loved it List</h3>
     </div>
   </div>
 
@@ -27,7 +27,7 @@
           <li>
             <p>{{burger_name}}
               <form action="/update/{{id}}" method="POST">
-                <button type="submit" class="button" data-id="{{id}}" class="devourBurger">It's burger o'clock!</button>
+                <button type="submit" class="button" data-id="{{id}}" class="devourBurger">Devour it!</button>
               </form>
             </p>
           </li>
@@ -42,7 +42,7 @@
           <li>
             <p>{{{burger_name}}}</p>
             <form action="/delete/{{id}}" method="POST">
-              <button type="submit" class="button" data-id="{{id}}" class="devourBurger">Yummm!</button>
+              <button type="submit" class="button" data-id="{{id}}" class="devourBurger">That was yummy!</button>
             </form>
           </li>
           {{/if}}
