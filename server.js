@@ -1,11 +1,12 @@
 // Dependencies.
 const express = require("express");
-
-// Setting the port of our application using Heroku.
-const PORT = process.env.PORT || 8080;
+const exphbs = require("express-handlebars");
 
 // Create an instance of the express app.
 const app = express();
+
+// Setting the port of our application using Heroku.
+const PORT = process.env.PORT || 8080;
 
 // Serve static content for the app from the "public" directory in the application directory.
  app.use(express.static("public"));
@@ -14,15 +15,12 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
+// Set Handlebars as view engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/burgers_controller.js");
-
+const routes = require("./controllers/burgers_controller.js");
 app.use(routes);
 
 app.listen(PORT, function() {
