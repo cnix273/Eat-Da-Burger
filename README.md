@@ -30,7 +30,7 @@ The user can perform the following actions:
 * Heroku - Hosts the application.
 
 **This video is a walkthrough of the application, showing its functionality**
-![Video Walkthrough](https://github.com/cnix273/Eat-Da-Burger/blob/burger_walkthrough.mp4)
+![Video Walkthrough](https://github.com/cnix273/Eat-Da-Burger/public/assets/blob/burger_walkthrough.mp4)
 
 ## Credits
 
