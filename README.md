@@ -29,6 +29,8 @@ The user can perform the following actions:
 * GitHub - Hosts the repository.
 * Heroku - Hosts the application.
 
+Deployed application: https://stark-reaches-59593.herokuapp.com/.
+
 **This video is a walkthrough of the application, showing its functionality**
 ![Video Walkthrough](https://github.com/cnix273/Eat-Da-Burger/blob/main/public/assets/burger_walkthrough.gif)
 
